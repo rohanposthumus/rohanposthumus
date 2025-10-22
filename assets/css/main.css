@@ -1736,3 +1736,55 @@ body.is-preload #footer {
 		transform: none;
 	}
 }
+
+#header nav ul + ul {
+    margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 480px) {
+    #header nav ul + ul {
+        margin-top: 0; 
+        border-top: solid 1px #ffffff; 
+    }
+
+    #header nav ul + ul li:first-child {
+        border-top: 0;
+    }
+}
+
+#header nav.use-middle:after {
+    display: none;
+}
+
+#header nav ul {
+	flex-wrap: wrap;
+}
+
+#header nav ul li {
+	flex-grow: 1;
+}
+
+#header nav ul li a {
+	min-width: 0;      
+	text-align: center; 
+	padding: 0 1rem;  
+}
+
+@media screen and (min-width: 481px) {
+    #header nav ul {
+        border-top: none;
+        border-left: none;
+    }
+
+    #header nav ul li {
+        border-top: solid 1px #ffffff;
+    }
+
+    #header nav ul li:first-child {
+        border-left: solid 1px #ffffff;
+    }
+
+    #header nav ul + ul li:first-child {
+        border-left: solid 1px #ffffff !important;
+    } 
+}

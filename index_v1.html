@@ -9,211 +9,7 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-		integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<style>
-		.typewriter-text {
-			display: inline-block;
-		}
-
-		/* Creates the blinking caret */
-		.typewriter-text::after {
-			content: '|';
-			display: inline-block;
-			animation: blink-caret 0.75s step-end infinite;
-			/* Match the text color */
-			color: inherit;
-		}
-
-		@keyframes blink-caret {
-
-			from,
-			to {
-				opacity: 1;
-			}
-
-			50% {
-				opacity: 0;
-			}
-		}
-
-		/* Class to stop blinking when done */
-		.typing-done::after {
-			animation: none;
-			opacity: 0;
-		}
-	</style>
-
-
 </head>
-<script>
-	document.addEventListener("DOMContentLoaded", function () {
-
-		function updateJobDuration(startYear, startMonthIndex, startDay) {
-			// Set your start date (Year, Month-Index, Day)
-			const startDate = new Date(startYear, startMonthIndex, startDay); // Nov 1, 2018 (Month is 0-indexed, so 10 is November)
-			const today = new Date();
-
-			let years = today.getFullYear() - startDate.getFullYear();
-			let months = today.getMonth() - startDate.getMonth();
-			let days = today.getDate() - startDate.getDate();
-
-			// Adjust months if the day of the month hasn't been reached
-			if (days < 0) {
-				months--;
-			}
-
-			// Adjust years if the month hasn't been reached and fix month count
-			if (months < 0) {
-				years--;
-				months = 12 + months; // e.g., -1 becomes 11
-			}
-
-			// If it's 0 months (e.g., anniversary), don't show months
-			if (months === 12) {
-				years++;
-				months = 0;
-			}
-
-			// Build the string parts, handling pluralization
-			const yearStr = years > 0 ? `${years} ${years === 1 ? 'year' : 'years'}` : '';
-			const monthStr = months > 0 ? `${months} ${months === 1 ? 'month' : 'months'}` : '';
-
-			// Combine the strings, filtering out empty ones
-			const durationString = [yearStr, monthStr].filter(Boolean).join(' ');
-
-			const element = document.getElementById('current-job-duration');
-
-			if (element) {
-				// Rebuild the HTML with the new, detailed string
-				element.innerHTML = `Nov 2018 - Present <br> ${durationString}`;
-			}
-		}
-
-		// --- NEW FUNCTION 2: Update Copyright Year ---
-		function updateCopyrightYear() {
-			const currentYear = new Date().getFullYear();
-			const element = document.getElementById('copyright-year');
-			if (element) {
-				element.textContent = currentYear;
-			}
-		}
-		updateJobDuration(2025, 9, 23); // 2018, 10, 1
-		updateCopyrightYear();
-
-
-		// --- Configuration ---
-
-		// ADD ACHIEVEMENTS HERE, WILL LOAD 3 AT A TIME
-		const achievements = [
-			'• Led data analytics for <strong>40,000+ students</strong>, informing university-wide strategy.',
-			'• Developed predictive ML models with <strong>85% accuracy</strong>, processing 150,000+ applications.',
-			'• Authored core algorithms for a <strong>R170 million</strong> student success project.',
-			'• Wrote 65 high-impact reports for top management during the COVID-19 pandemic.',
-			'• Automated a process that took weeks down to <strong>8 minutes</strong>.',
-			'• Designed and built the Learner Case Management (LCM) system from prototype to production.',
-			'• Chaired the Blackboard Data Developers User Group for Europe, Middle-East, and Africa.',
-			'• Deployed text-mining algorithms to identify and support at-risk students.',
-			'• Significantly reduced institutional risk, leading to <strong>multi-million Rand subsidies</strong>.'
-		];
-
-		// 2. TWEAK TIMINGS (in milliseconds)
-		const typeSpeed = 40;     // Speed of typing
-		const eraseSpeed = 20;    // Speed of erasing
-		const pauseAfterTyping = 3000; // Pause after typing 3 lines
-		const pauseAfterErasing = 500;   // Pause before typing next set
-
-		// --- End Configuration ---
-
-
-		const line1 = document.getElementById('achieve-line-1');
-		const line2 = document.getElementById('achieve-line-2');
-		const line3 = document.getElementById('achieve-line-3');
-		const lines = [line1, line2, line3];
-
-		let achievementIndex = 0;
-
-		// Utility function to pause
-		function sleep(ms) {
-			return new Promise(resolve => setTimeout(resolve, ms));
-		}
-
-		// Function to type a line
-		async function typeLine(element, text) {
-			element.classList.add('typewriter-text');
-			element.classList.remove('typing-done');
-
-			// This handles the HTML tags (like <strong>)
-			const tempDiv = document.createElement('div');
-			tempDiv.innerHTML = text;
-			const nodes = Array.from(tempDiv.childNodes);
-
-			for (const node of nodes) {
-				if (node.nodeType === Node.TEXT_NODE) {
-					for (const char of node.textContent) {
-						element.innerHTML += char;
-						await sleep(typeSpeed);
-					}
-				} else {
-					// It's an element like <strong>, append it whole
-					element.innerHTML += node.outerHTML;
-				}
-			}
-			element.classList.add('typing-done');
-			element.classList.remove('typewriter-text');
-		}
-
-		// Function to erase a line
-		async function eraseLine(element) {
-			element.classList.add('typewriter-text');
-			element.classList.remove('typing-done');
-			const text = element.innerHTML;
-
-			// Simplified erase just for visual effect
-			for (let i = text.length; i >= 0; i--) {
-				element.innerHTML = text.substring(0, i);
-				await sleep(eraseSpeed);
-			}
-			element.innerHTML = ''; // Clear it
-			element.classList.remove('typewriter-text');
-		}
-
-		// Main animation loop
-		async function runAnimation() {
-			while (true) {
-				const text1 = achievements[achievementIndex % achievements.length];
-				const text2 = achievements[(achievementIndex + 1) % achievements.length];
-				const text3 = achievements[(achievementIndex + 2) % achievements.length];
-
-				await Promise.all([
-					typeLine(line1, text1),
-					typeLine(line2, text2),
-					typeLine(line3, text3)
-				]);
-
-				await sleep(pauseAfterTyping);
-
-				await Promise.all([
-					eraseLine(line1),
-					eraseLine(line2),
-					eraseLine(line3)
-				]);
-
-				await sleep(pauseAfterErasing);
-
-				// Move to the next set of 3
-				achievementIndex = (achievementIndex + 3) % achievements.length;
-			}
-		}
-
-		// Start the animation
-		runAnimation();
-
-
-
-	});
-</script>
 
 <body class="is-preload">
 
@@ -244,28 +40,18 @@
 						decisions and to deliver high-quality results for my employer in a fast-paced and dynamic work
 						environment.</p>
 
-					<!--<ul style="text-align: left; display: inline-block;">
+					<ul style="text-align: left; display: inline-block;">
 						<li>Led data analytics for <strong>40,000+ students</strong>, informing university-wide
 							strategy.</li>
 						<li>Developed predictive ML models with <strong>85% accuracy</strong>, processing 150,000+
 							applications.</li>
 						<li>Authored core algorithms for a <strong>R170 million</strong> student success project.
 						</li>
-					</ul> -->
-
-
-					<ul id="wow-achievements"
-						style="text-align: left; display: inline-block; list-style-type: none; padding-left: 0;">
-						<li id="achieve-line-1" style="min-height: 2em; display: block;"></li>
-						<li id="achieve-line-2" style="min-height: 2em; display: block;"></li>
-						<li id="achieve-line-3" style="min-height: 2em; display: block;"></li>
 					</ul>
 
-
-
-					<!--<p>
+					<p>
 						Below is examples of projects I have been involved in to showcase my skills.
-					</p> -->
+					</p>
 
 				</div>
 			</div>
@@ -273,15 +59,15 @@
 				<ul>
 					<li><a href="#about">About</a></li>
 					<li><a href="#projects">Key Projects</a></li>
-					<li><a href="#contact">Get in Touch</a></li>
+					<li><a href="#contact">Contact</a></li>
 
 
 				</ul>
 				<ul>
 					<li><a href="#data-science">Data Science</a></li>
 					<li><a href="#data-analytics">Data Analytics</a></li>
-					<!--<li><a href="#data-engineering">Data Engineering</a></li> -->
-					<!--<li><a href="#artificial-intelligence">Artificial Intelligence</a></li> -->
+					<li><a href="#data-engineering">Data Engineering</a></li>
+					<li><a href="#artificial-intelligence">Artificial Intelligence</a></li>
 					<li><a href="#software-engineering">Software Engineering</a></li>
 					<li><a href="#applied-science">Applied Science</a></li>
 				</ul>
@@ -295,24 +81,7 @@
 			<article id="about">
 				<h2 class="major">About</h2>
 				<span class="image main"><img src="images/profile-pic.JPG" alt="Rohan Posthumus" /></span>
-
-				<p style="text-align: justify;"><strong>
-						<blockquote>With over 10 years at the University of the Free State, I am a data scientist
-							specializing in
-							enhancing student success. I have a proven record of leading high-impact projects, from
-							developing predictive ML models for 150,000+ applications to architecting the core
-							algorithms
-							for a R170 million foundation partnership. I excel at translating complex data into
-							actionable
-							strategy and building robust, scalable data solutions.</blockquote>
-					</strong></p>
-				<ul class="actions">
-					<li><a href="assets/Rohan-Posthumus-CV.pdf" class="button primary" target="_blank">Download Full CV
-							(PDF)</a></li>
-				</ul>
-				<h3 class="major">Background</h3>
-				<p style="text-align: justify;">
-					As an experienced professional with more than 10 years of experience at
+				<p style="text-align: justify;"> As an experienced professional with more than 10 years of experience at
 					the University of the Free
 					State, I have developed a diverse skill set in applied science, research, data analytics, data
 					science, and programming. I have a proven track record of leveraging data-driven insights to solve
@@ -348,10 +117,6 @@
 					The following quote sums up my career:
 				<blockquote>"There is nothing so practical as a good theory". <br>Kurt Lewin</blockquote>
 				</p>
-
-
-
-
 				<h3 class="major">Experience</h3>
 				<div class="table-wrapper">
 					<table class="alt" style="width: 100%; table-layout: fixed;">
@@ -366,7 +131,7 @@
 							<tr>
 								<td>Data Scientist/Analyst</td>
 								<td>University of the Free State, <br> Centre for Teaching and Learning</td>
-								<td id="current-job-duration">Nov 2018 - Present <br> 6+ years</td>
+								<td>Nov 2018 - Present <br> 4+ years</td>
 							</tr>
 							<tr>
 								<td>Researcher</td>
@@ -482,70 +247,9 @@
 						affect them).</li>
 
 				</ul>
-			</article>
-
-			<article id="projects">
-				<h2 class="major">Key Projects</h2>
-				<p>Here are a few spotlights of my most impactful work. More details can be found in the skill-specific
-					sections.</p>
-
-				<h3 style="text-align: left;">NBT Predictive Algorithm & Automation Bot</h3>
-				<p style="text-align: justify;">
-					<strong>Problem:</strong> During the pandemic, many students couldn't take the compulsory National
-					Benchmark Test (NBT) for financial reasons, blocking them from registration.
-					<br>
-					<strong>Solution:</strong> I developed a Gradient Boosting Machines (GBM) algorithm to predict
-					student academic literacy scores, allowing for exemptions. I then built a Python email bot to
-					automate the generation and sending of 1,000+ personalized HTML notification emails per minute.
-					<br>
-					<strong>Impact:</strong> Processed over 150,000 applications, achieved 85% out-of-sample accuracy,
-					and reduced a task that took four people weeks to just eight minutes. The algorithm is now
-					institutionalized in the University's General Rules.
-				</p>
-
-				<h3 style="text-align: left;">Michael Susan Dell Foundation (MSDF) Student Success Algorithms</h3>
-				<p style="text-align: justify;">
-					<strong>Problem:</strong> The university needed a robust, scalable system to proactively identify
-					at-risk students and track their progress toward career-readiness.
-					<br>
-					<strong>Solution:</strong> I authored all the core algorithms for a R170 million, 7-year
-					partnership. This included the "Scaled Responsive Student Tracking" algorithm (an advanced early
-					warning system) and the "Employability Tracking Algorithm" which pulls, integrates, and analyzes
-					data to award badges as students hit milestones.
-					<br>
-					<strong>Impact:</strong> These algorithms form the foundation of the university's next-generation
-					student success and retention strategy, directly improving graduation rates and securing a major
-					long-term institutional partnership.
-				</p>
-
-				<h3 style="text-align: left;">COVID-19 Engagement Analytics (40,000+ Students)</h3>
-				<p style="text-align: justify;">
-					<strong>Problem:</strong> At the start of the pandemic, top management had no visibility into
-					whether teaching and learning were happening effectively online for over 40,000 students.
-					<br>
-					<strong>Solution:</strong> I led the tracking and analysis of all online engagement (LMS access,
-					video sessions, assessment completion, etc.). I authored 65 detailed reports that were delivered
-					directly to top management and our rector.
-					<br>
-					<strong>Impact:</strong> The reports became a national DHET reporting requirement, were presented to
-					the Minister of Higher Education, significantly reduced the University's risk score, and led to
-					multi-million Rand subsidies.
 				</p>
 			</article>
 
-			<article id="contact">
-				<h2 class="major">Get in Touch</h2>
-				<p>I'm actively seeking new opportunities and would be happy to discuss how my skills can benefit your
-					team. Please feel free to reach out via email or connect with me on LinkedIn.</p>
-				<ul class="icons">
-					<li><a href="mailto:rohanposthumus@gmail.com" class="icon fa-solid fa-envelope"><span
-								class="label">Email</span></a></li>
-					<li><a href="https://www.linkedin.com/in/jan-johannes-rohan-posthumus-4b312651/" target="_blank"
-							class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-					<li><a href="https://github.com/rohanposthumus" target="_blank" class="icon brands fa-github"><span
-								class="label">GitHub</span></a></li>
-				</ul>
-			</article>
 			<!-- applied-science -->
 			<article id="applied-science">
 				<h2 class="major">Applied Science Research</h2>
@@ -903,15 +607,14 @@
 				</p>
 			</article>
 
-			<!--<article id="data-engineering"></article> -->
-			<!--<article id="artificial-intelligence"></article> -->
+			<article id="data-engineering"></article>
+			<article id="artificial-intelligence"></article>
 
 		</div>
 
 		<!-- Footer -->
 		<footer id="footer">
-			<p class="copyright">&copy;<span id="copyright-year">2025</span> All Rights Reserved. <br>Design: <a
-					href="https://html5up.net">HTML5 UP</a>.
+			<p class="copyright">&copy;2023 All Rights Reserved. <br>Design: <a href="https://html5up.net">HTML5 UP</a>.
 			</p><br>
 
 		</footer>
