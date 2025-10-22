@@ -90,8 +90,9 @@
 				element.innerHTML = `Nov 2018 - Present <br> ${durationString}`;
 			}
 		}
+		updateJobDuration(2018, 10, 1);
 
-		// --- NEW FUNCTION 2: Update Copyright Year ---
+		// --- Update Copyright Year ---
 		function updateCopyrightYear() {
 			const currentYear = new Date().getFullYear();
 			const element = document.getElementById('copyright-year');
@@ -99,7 +100,7 @@
 				element.textContent = currentYear;
 			}
 		}
-		updateJobDuration(2025, 9, 23); // 2018, 10, 1
+
 		updateCopyrightYear();
 
 
@@ -217,15 +218,11 @@
 
 <body class="is-preload">
 
-	<!-- Wrapper -->
 	<div id="wrapper">
-		<!-- Header -->
 		<header id="header">
 			<div class="content">
 				<div class="inner">
-
 					<div class="container">
-
 						<h1>
 							<div class="stack" style="--stacks: 3;">
 								<span style="--index: 0;">Rohan Posthumus</span>
@@ -236,7 +233,6 @@
 
 						<span>Data Scientist/Analyst with expertise in applied science, research, programming and
 							AI</span>
-
 
 					</div><br />
 					<p> My diverse skill set gives me a
@@ -253,15 +249,12 @@
 						</li>
 					</ul> -->
 
-
 					<ul id="wow-achievements"
 						style="text-align: left; display: inline-block; list-style-type: none; padding-left: 0;">
 						<li id="achieve-line-1" style="min-height: 2em; display: block;"></li>
 						<li id="achieve-line-2" style="min-height: 2em; display: block;"></li>
 						<li id="achieve-line-3" style="min-height: 2em; display: block;"></li>
 					</ul>
-
-
 
 					<!--<p>
 						Below is examples of projects I have been involved in to showcase my skills.
@@ -274,8 +267,6 @@
 					<li><a href="#about">About</a></li>
 					<li><a href="#projects">Key Projects</a></li>
 					<li><a href="#contact">Get in Touch</a></li>
-
-
 				</ul>
 				<ul>
 					<li><a href="#data-science">Data Science</a></li>
@@ -289,13 +280,10 @@
 
 		</header>
 
-		<!-- Main -->
 		<div id="main">
-
 			<article id="about">
 				<h2 class="major">About</h2>
 				<span class="image main"><img src="images/profile-pic.JPG" alt="Rohan Posthumus" /></span>
-
 				<p style="text-align: justify;"><strong>
 						<blockquote>With over 10 years at the University of the Free State, I am a data scientist
 							specializing in
@@ -338,8 +326,6 @@
 					stakeholders was essential in securing funding for these projects and fostering productive
 					relationships with our industry partners.<br><br>
 
-
-
 					Overall, I am a well-rounded professional who is equipped with the knowledge, skills, and tools to
 					deliver high-quality results in a fast-paced and dynamic work environment. I am confident that my
 					experience and expertise make me highly employable and I look forward to discussing how I can
@@ -348,9 +334,6 @@
 					The following quote sums up my career:
 				<blockquote>"There is nothing so practical as a good theory". <br>Kurt Lewin</blockquote>
 				</p>
-
-
-
 
 				<h3 class="major">Experience</h3>
 				<div class="table-wrapper">
@@ -546,7 +529,6 @@
 								class="label">GitHub</span></a></li>
 				</ul>
 			</article>
-			<!-- applied-science -->
 			<article id="applied-science">
 				<h2 class="major">Applied Science Research</h2>
 				<span class="image main"><img src="images/hierarchical-clustering.png" alt="" /></span>
@@ -571,7 +553,6 @@
 				</p>
 			</article>
 
-			<!-- data-analytics -->
 			<article id="data-analytics">
 				<h2 class="major">Data analytics</h2>
 				<span class="image main"><img src="images/tableau.png" alt="" /></span>
@@ -641,7 +622,6 @@
 				</p>
 			</article>
 
-			<!-- data-science -->
 			<article id="data-science">
 				<h2 class="major">Data Science</h2>
 				<span class="image main"><img src="images/text-mining.JPG" alt="" /></span>
@@ -665,7 +645,6 @@
 							complete in just eight minutes. Students then only have to click "reply" to reach the
 							correct support service staff member. </li>
 					</ul>
-
 				</ul>
 
 
@@ -758,7 +737,6 @@
 				</p>
 			</article>
 
-			<!-- software-engineering -->
 			<article id="software-engineering">
 				<h2 class="major">Software Engineering</h2>
 				<span class="image main"><img src="images/lcm.JPG" alt="" /></span>
@@ -898,8 +876,6 @@
 
 					</li><br>
 				</ul>
-
-
 				</p>
 			</article>
 
@@ -908,7 +884,6 @@
 
 		</div>
 
-		<!-- Footer -->
 		<footer id="footer">
 			<p class="copyright">&copy;<span id="copyright-year">2025</span> All Rights Reserved. <br>Design: <a
 					href="https://html5up.net">HTML5 UP</a>.
@@ -918,10 +893,8 @@
 
 	</div>
 
-	<!-- BG -->
 	<div id="bg"></div>
 
-	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
