@@ -164,6 +164,13 @@ def create_pdf():
             "margin-left": "1.5cm",
             "encoding": "UTF-8",
             "quiet": "",  # Suppresses console output
+            # --- Page Numbering Options ---
+            # Place text on the right side of the footer
+            "footer-right": "Page [page] of [topage]",
+            # Optional: Add a line above the footer
+            "footer-line": True,
+            # Optional: Set the font size for the footer
+            "footer-font-size": "8",
         }
 
         pdfkit.from_string(

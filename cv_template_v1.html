@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ name }}'s CV</title>
+    <style>
+        body {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            /* A4 page is 21cm wide. 2cm margins = 17cm content area */
+            width: 17cm;
+            margin: 2cm auto;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 24pt;
+            margin: 0 0 5px 0;
+            color: #111;
+        }
+
+        .header .subtitle {
+            font-size: 12pt;
+            color: #555;
+            margin: 0;
+        }
+
+        .header .contact {
+            font-size: 10pt;
+            color: #444;
+            margin-top: 10px;
+        }
+
+        h2 {
+            font-size: 14pt;
+            color: #000;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 3px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 11pt;
+            color: #222;
+            margin-top: 15px;
+            margin-bottom: 3px;
+        }
+
+        p,
+        ul {
+            margin: 0 0 10px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        .project-details {
+            padding-left: 10px;
+        }
+
+        .project-details b {
+            color: #111;
+        }
+
+        .job {
+            margin-bottom: 15px;
+        }
+
+        .job p {
+            margin: 0;
+        }
+
+        .job .duration {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>{{ name }}</h1>
+            <p class="subtitle">{{ title }}</p>
+            <p class="contact">
+                {{ contact.email }} &bull; {{ contact.github }} &bull; {{ contact.linkedin }}
+            </p>
+        </div>
+
+        <h2>Executive Summary</h2>
+        <p>{{ summary }}</p>
+
+        <h2>Key Projects</h2>
+        {% for project in projects %}
+        <h3>{{ project.title }}</h3>
+        <div class="project-details">
+            <p>{{ project.details | safe }}</p>
+        </div>
+        {% endfor %}
+
+        <h2>Experience</h2>
+        {% for job in experience %}
+        <div class="job">
+            <h3>{{ job.title }}</h3>
+            <p><b>{{ job.employer }}</b></p>
+            <p class="duration">{{ job.duration }}</p>
+        </div>
+        {% endfor %}
+
+        <h2>Formal Education</h2>
+        {% for edu in education %}
+        <div class="job">
+            <h3>{{ edu.qualification }}</h3>
+            <p><b>{{ edu.institution }}</b> - {{ edu.year }}</p>
+        </div>
+        {% endfor %}
+
+        <h2>Top 10 Skills</h2>
+        <ul>
+            {% for skill in skills %}
+            <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Recent Achievements</h2>
+        <ul>
+            {% for achievement in achievements %}
+            <li>{{ achievement }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>
