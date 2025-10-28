@@ -1,4 +1,3 @@
-import sys
 import re
 from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader
@@ -9,16 +8,8 @@ HTML_FILE = "index.html"
 TEMPLATE_FILE = "cv_template.html"
 PDF_FILE = "./assets/Rohan_Posthumus_CV.pdf"
 
-# --- CRITICAL: Update this path ---
-# This is the default path on Windows. Update it if you installed it elsewhere.
 path_to_wkhtmltopdf = r"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe"
 PDFKIT_CONFIG = pdfkit.configuration(wkhtmltopdf=path_to_wkhtmltopdf)
-
-# --- How to Use ---
-# 1. Edit your main 'index.html' file with your content.
-# 2. Edit 'cv_template.html' to change the PDF's style.
-# 3. Run this script: python create_cv.py
-# -----------------------------------------------------------------
 
 
 def get_inner_html(node):
