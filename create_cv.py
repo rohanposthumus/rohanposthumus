@@ -23,7 +23,7 @@ def get_inner_html(node):
     # Get all child contents as a string
     text = "".join(str(c) for c in node.contents).strip()
 
-    # --- Keep your original cleanup rules ---
+    # Cleanup
     text = text.replace("<strong>", "<b>").replace("</strong>", "</b>")
     text = text.replace("<br>", "<br/>")
 
@@ -148,7 +148,6 @@ def create_pdf():
     # --- 4. Convert to PDF ---
     print(f"Generating '{PDF_FILE}'...")
     try:
-        # Set options for better quality and header/footer removal
         options = {
             "page-size": "A4",
             "margin-top": "2cm",
@@ -157,12 +156,8 @@ def create_pdf():
             "margin-left": "1.5cm",
             "encoding": "UTF-8",
             "quiet": "",  # Suppresses console output
-            # --- Page Numbering Options ---
-            # Place text on the right side of the footer
             "footer-right": "Page [page] of [topage]",
-            # Optional: Add a line above the footer
             "footer-line": True,
-            # Optional: Set the font size for the footer
             "footer-font-size": "8",
         }
 
@@ -174,8 +169,7 @@ def create_pdf():
     except IOError as e:
         if "No wkhtmltopdf executable found" in str(e):
             print("--- PDFkit Error ---")
-            print("Could not find 'wkhtmltopdf.exe'.")
-            print(f"I'm looking for it at this path: {path_to_wkhtmltopdf}")
+            print(f"Could not find 'wkhtmltopdf.exe' in '{path_to_wkhtmltopdf}'")
             print(
                 "Please make sure you have installed it and the path at the top of the script is correct."
             )
