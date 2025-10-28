@@ -21,23 +21,25 @@ PDFKIT_CONFIG = pdfkit.configuration(wkhtmltopdf=path_to_wkhtmltopdf)
 # -----------------------------------------------------------------
 
 
-def simple_html_converter(text_node):
-    """Converts a BeautifulSoup node to a clean HTML string for Jinja."""
-    text = str(text_node)
-    # Remove the outer <p> or <td> tag itself
-    text = re.sub(r"^\s*<p.*?>", "", text, flags=re.IGNORECASE | re.DOTALL)
-    text = re.sub(r"</p>\s*$", "", text, flags=re.IGNORECASE | re.DOTALL)
-    text = re.sub(r"^\s*<td.*?>", "", text, flags=re.IGNORECASE | re.DOTALL)
-    text = re.sub(r"</td>\s*$", "", text, flags=re.IGNORECASE | re.DOTALL)
+def get_inner_html(node):
+    """
+    Gets the inner HTML of a BeautifulSoup node as a clean string.
+    This is more robust than regex on the outer tag.
+    """
+    if not node:
+        return ""
 
-    # Convert strong/b and br
+    # Get all child contents as a string
+    text = "".join(str(c) for c in node.contents).strip()
+
+    # --- Keep your original cleanup rules ---
     text = text.replace("<strong>", "<b>").replace("</strong>", "</b>")
     text = text.replace("<br>", "<br/>")
 
     # Clean up artifacts
     text = re.sub(r"</?span.*?>", "", text, flags=re.IGNORECASE)
     text = re.sub(r'style=".*?"', "", text, flags=re.IGNORECASE)
-    return text.strip()
+    return text
 
 
 def scrape_data(soup):
@@ -72,7 +74,7 @@ def scrape_data(soup):
             data["projects"].append(
                 {
                     "title": project.get_text(strip=True),
-                    "details": simple_html_converter(project.find_next_sibling("p")),
+                    "details": get_inner_html(project.find_next_sibling("p")),
                 }
             )
 
@@ -84,8 +86,8 @@ def scrape_data(soup):
             data["experience"].append(
                 {
                     "title": cols[0].get_text(strip=True),
-                    "employer": simple_html_converter(cols[1]).replace("<br/>", ", "),
-                    "duration": simple_html_converter(cols[2]).replace("<br/>", " - "),
+                    "employer": get_inner_html(cols[1]).replace("<br/>", ", "),
+                    "duration": get_inner_html(cols[2]).replace("<br/>", " - "),
                 }
             )
 
@@ -119,7 +121,7 @@ def scrape_data(soup):
         return data
 
     except Exception as e:
-        print(f"Error: Could not parse HTML. Did the structure of 'index.html' change?")
+        print("Error: Could not parse HTML. Did the structure of 'index.html' change?")
         print(f"Details: {e}")
         return None
 
@@ -181,7 +183,7 @@ def create_pdf():
     except IOError as e:
         if "No wkhtmltopdf executable found" in str(e):
             print("--- PDFkit Error ---")
-            print(f"Could not find 'wkhtmltopdf.exe'.")
+            print("Could not find 'wkhtmltopdf.exe'.")
             print(f"I'm looking for it at this path: {path_to_wkhtmltopdf}")
             print(
                 "Please make sure you have installed it and the path at the top of the script is correct."

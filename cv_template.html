@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ name }}'s CV</title>
     <style>
         body {
@@ -10,55 +11,94 @@
             font-size: 10.5pt;
             line-height: 1.5;
             color: #333;
+            /* --text-color */
             margin: 0;
             padding: 0;
+            background-color: #f0f0f0;
+            /* Light grey background for screen */
+            text-align: justify;
         }
 
         .page {
-            /* A4 page is 21cm wide. 2cm margins = 17cm content area */
             width: 17cm;
+            min-height: 25.7cm;
             margin: 2cm auto;
+            padding: 2cm;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
         }
 
         .header {
             text-align: center;
-            border-bottom: 2px solid #eee;
+            border-bottom: 2px solid #004a80;
+            /* --primary-color */
             padding-bottom: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .header h1 {
-            font-size: 24pt;
+            font-size: 26pt;
             margin: 0 0 5px 0;
-            color: #111;
+            color: #004a80;
+            /* --primary-color */
+            font-weight: 600;
         }
 
         .header .subtitle {
-            font-size: 12pt;
+            font-size: 13pt;
             color: #555;
+            /* --text-color-light */
             margin: 0;
+            font-weight: 300;
         }
 
         .header .contact {
             font-size: 10pt;
-            color: #444;
-            margin-top: 10px;
+            color: #555;
+            /* --text-color-light */
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .header .contact a {
+            color: #333;
+            /* --text-color */
+            text-decoration: none;
+            padding: 0 5px;
+        }
+
+        .header .contact a:hover {
+            text-decoration: underline;
         }
 
         h2 {
             font-size: 14pt;
-            color: #000;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 3px;
+            color: #004a80;
+            /* --primary-color */
+            border-bottom: 1px solid #004a80;
+            /* --primary-color */
+            padding-bottom: 4px;
             margin-top: 25px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
         }
 
         h3 {
-            font-size: 11pt;
+            font-size: 12pt;
             color: #222;
-            margin-top: 15px;
-            margin-bottom: 3px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        h4 {
+            font-size: 11pt;
+            font-weight: bold;
+            color: #555;
+            /* --text-color-light */
+            margin: 0 0 8px 0;
         }
 
         p,
@@ -71,28 +111,115 @@
         }
 
         li {
-            margin-bottom: 4px;
+            margin-bottom: 5px;
         }
 
-        .project-details {
-            padding-left: 10px;
+        .entry {
+            margin-bottom: 18px;
         }
 
-        .project-details b {
-            color: #111;
+        .entry-header {
+            /* Basic flexbox is supported, this should be fine */
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
         }
 
-        .job {
-            margin-bottom: 15px;
-        }
-
-        .job p {
-            margin: 0;
-        }
-
-        .job .duration {
+        .entry-header .duration {
             font-style: italic;
             color: #555;
+            /* --text-color-light */
+            font-size: 10pt;
+            flex-shrink: 0;
+            padding-left: 15px;
+        }
+
+        .entry ul {
+            margin-top: 8px;
+        }
+
+        .skills-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .skills-list li {
+            display: inline-block;
+            background-color: #f9f9f9;
+            /* --bg-light */
+            border: 1px solid #ddd;
+            /* --border-color */
+            color: #333;
+            /* --text-color */
+            padding: 4px 10px;
+            margin: 2px 2px;
+            border-radius: 4px;
+            font-size: 10pt;
+        }
+
+        @media (max-width: 21cm) {
+            body {
+                background-color: #fff;
+            }
+
+            .page {
+                width: 100%;
+                margin: 0;
+                padding: 1cm;
+                box-shadow: none;
+                min-height: 0;
+            }
+
+            .entry-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .entry-header .duration {
+                padding-left: 0;
+                font-size: 9pt;
+            }
+        }
+
+        @media print {
+            body {
+                background-color: #fff;
+                font-size: 10pt;
+            }
+
+            .page {
+                margin: 1.5cm;
+                width: auto;
+                box-shadow: none;
+                min-height: 0;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            p,
+            li,
+            a {
+                color: #000 !important;
+            }
+
+            .header,
+            h2 {
+                border-bottom-color: #000 !important;
+            }
+
+            .skills-list li {
+                background-color: #eee !important;
+                border: 1px solid #ccc !important;
+            }
+
+            a {
+                text-decoration: none;
+            }
         }
     </style>
 </head>
@@ -103,40 +230,57 @@
             <h1>{{ name }}</h1>
             <p class="subtitle">{{ title }}</p>
             <p class="contact">
-                {{ contact.email }} &bull; {{ contact.github }} &bull; {{ contact.linkedin }}
+                <a href="mailto:{{ contact.email }}">Email</a>
+                &bull;
+                <a href="{{ contact.github }}" target="_blank">GitHub</a>
+                &bull;
+                <a href="{{ contact.linkedin }}" target="_blank">LinkedIn</a>
             </p>
         </div>
 
         <h2>Executive Summary</h2>
-        <p>{{ summary }}</p>
+        <p>{{ summary | safe }}</p>
 
         <h2>Key Projects</h2>
         {% for project in projects %}
-        <h3>{{ project.title }}</h3>
-        <div class="project-details">
+        <div class="entry">
+            <h3>{{ project.title }}</h3>
             <p>{{ project.details | safe }}</p>
         </div>
         {% endfor %}
 
         <h2>Experience</h2>
         {% for job in experience %}
-        <div class="job">
-            <h3>{{ job.title }}</h3>
-            <p><b>{{ job.employer }}</b></p>
-            <p class="duration">{{ job.duration }}</p>
+        <div class="entry">
+            <div class="entry-header">
+                <h3>{{ job.title }}</h3>
+                <span class="duration">{{ job.duration }}</span>
+            </div>
+            <h4>{{ job.employer }}</h4>
+
+            {% if job.responsibilities %}
+            <ul>
+                {% for item in job.responsibilities %}
+                <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         {% endfor %}
 
         <h2>Formal Education</h2>
         {% for edu in education %}
-        <div class="job">
-            <h3>{{ edu.qualification }}</h3>
-            <p><b>{{ edu.institution }}</b> - {{ edu.year }}</p>
+        <div class="entry">
+            <div class="entry-header">
+                <h3>{{ edu.qualification }}</h3>
+                <span class="duration">{{ edu.year }}</span>
+            </div>
+            <h4>{{ edu.institution }}</h4>
         </div>
         {% endfor %}
 
         <h2>Top 10 Skills</h2>
-        <ul>
+        <ul class="skills-list">
             {% for skill in skills %}
             <li>{{ skill }}</li>
             {% endfor %}
