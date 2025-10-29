@@ -4,4 +4,4 @@ With over 10 years at the University of the Free State, I am a data scientist sp
 
 [Click here to check out my work](https://rohanposthumus.github.io/rohanposthumus/)
 
-[Get in touch](mailto:rohanposthumus@gmail.com)
+[Get in touch](mailto:rohan@ideascape.co.za)
