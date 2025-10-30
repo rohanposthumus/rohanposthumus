@@ -43,6 +43,24 @@
 			animation: none;
 			opacity: 0;
 		}
+
+		.skills-list {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			text-align: left;
+		}
+
+		.skills-list li {
+			display: inline-block;
+			background-color: rgba(255, 255, 255, 0.175);
+			border: 1px solid #ddd;
+			color: #ddd;
+			padding: 4px 10px;
+			margin: 2px 2px;
+			border-radius: 4px;
+			font-size: 10pt;
+		}
 	</style>
 
 
@@ -122,7 +140,7 @@
 		// 2. TWEAK TIMINGS (in milliseconds)
 		const typeSpeed = 40;     // Speed of typing
 		const eraseSpeed = 20;    // Speed of erasing
-		const pauseAfterTyping = 3000; // Pause after typing 3 lines
+		const pauseAfterTyping = 4000; // Pause after typing 3 lines
 		const pauseAfterErasing = 500;   // Pause before typing next set
 
 		// --- End Configuration ---
@@ -240,15 +258,6 @@
 						decisions and to deliver high-quality results for my employer in a fast-paced and dynamic work
 						environment.</p>
 
-					<!--<ul style="text-align: left; display: inline-block;">
-						<li>Led data analytics for <strong>40,000+ students</strong>, informing university-wide
-							strategy.</li>
-						<li>Developed predictive ML models with <strong>85% accuracy</strong>, processing 150,000+
-							applications.</li>
-						<li>Authored core algorithms for a <strong>R170 million</strong> student success project.
-						</li>
-					</ul> -->
-
 					<ul id="wow-achievements"
 						style="text-align: left; display: inline-block; list-style-type: none; padding-left: 0;">
 						<li id="achieve-line-1" style="min-height: 2em; display: block;"></li>
@@ -256,9 +265,6 @@
 						<li id="achieve-line-3" style="min-height: 2em; display: block;"></li>
 					</ul>
 
-					<!--<p>
-						Below is examples of projects I have been involved in to showcase my skills.
-					</p> -->
 
 				</div>
 			</div>
@@ -398,7 +404,7 @@
 				</div>
 				<h3 class="major">Top 10 skills</h3>
 				<p>
-				<ul>
+				<ul class="skills-list">
 					<li>Cross contextualized thinking</li>
 					<li>Critical and creative thinking</li>
 					<li>Data analytics and statistical modeling</li>
