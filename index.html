@@ -61,6 +61,10 @@
 			border-radius: 4px;
 			font-size: 10pt;
 		}
+
+		#header nav ul+ul li:first-child {
+			border-left: solid 1px #ffffff;
+		}
 	</style>
 
 
@@ -276,9 +280,9 @@
 				</ul>
 				<ul>
 					<li><a href="#data-science">Data Science</a></li>
-					<li><a href="#data-analytics">Data Analytics</a></li>
+					<li style="border-left: solid 1px #ffffff;"><a href="#data-analytics">Data Analytics</a></li>
 					<!--<li><a href="#data-engineering">Data Engineering</a></li> -->
-					<!--<li><a href="#artificial-intelligence">Artificial Intelligence</a></li> -->
+					<li><a href="#artificial-intelligence">Artificial Intelligence</a></li>
 					<li><a href="#software-engineering">Software Engineering</a></li>
 					<li><a href="#applied-science">Applied Science</a></li>
 				</ul>
@@ -886,7 +890,105 @@
 			</article>
 
 			<!--<article id="data-engineering"></article> -->
-			<!--<article id="artificial-intelligence"></article> -->
+			<article id="artificial-intelligence">
+				<h2 class="major">Artificial Intelligence</h2>
+				<span class="image main"><img src="images/ai.JPG" alt="Image produced by Gemini" height="320"
+						title="Image produced by Gemini" /></span>
+
+				<p style="text-align: justify;">
+					I am the lead data scientist for the Siyaphumelela project at the University of the Free State.
+					The project objective I am responsible for is called "Investigate contextualised AI design,
+					development and implementation in a higher education environment".
+					Below is some of the main <b>examples</b> of work that I have done with artificial intelligence:
+				<ul>
+					<li style="text-align: justify;">Baby AI project: After the launch of ChatGPT late 2022, the
+						University wanted to understand the potential impact
+						of Generative Artificial Intelligence on higher education. I spent the first half of 2023 to
+						create a small scale version
+						of ChatGPT (more precisely a transformer) to understand the inner workings of Large Language
+						Models. I used publicly available parallel corpora as well as a study guide from a module called
+						"English Academic Literacy for Law" as data
+						sets.
+						The small LLM I created was fondly called "Baby AI" by my colleagues. The first experiment was
+						translation.
+						I trained the small LLM to translate the module from English to Afrikaans. The second experiment
+						was question-and-answering. We asked
+						the small LLM questions about the module and the lecturer helped evaluate whether it was true or
+						not. We learned lessons about training time,
+						data set size, accuracy and hallucinations. We also noticed the small LLM was obsessed with
+						assessments. The lecturer and I discussed how we
+						could improve the teaching and learning of the study guide instead of forcing students to only
+						focus on
+						assessments. I presented the findings at the 2023 SAAIR conference.
+					</li>
+
+					<li style="text-align: justify;">Prompt Engineering crash course: Developed a prompt engineering
+						crash course in the beginning of 2025 for the
+						Center of Teaching and Learning
+						as part of our internal capacity development plan. The prompt engineering guide was also turned
+						into a workshop. The workshop I presented included
+						AI literacy training and explaining the various algorithm to staff members.
+
+					</li>
+					<li style="text-align: justify;">Generative Artificial Intelligence as an assistant for assessment:
+						Currently researching the application of Generative Artificial Intelligence (GAI) to support and
+						streamline assessment processes in higher education. The project focuses on Critical
+						Academic Literacy at the University of the Free State, investigating whether GAI can provide
+						reliable, standardized, and timely feedback on written assessments. The project involves a
+						comparative analysis of GAI-generated feedback against facilitator feedback, using thematic and
+						textual analysis to evaluate adherence to analytic rubrics and its potential to reduce
+						instructor workload. Our abstract has been accepted on 21 October 2025 by the South African
+						Journal
+						of Higher
+						Education for their "AI in Higher Education in Global South" Special edition.
+
+					</li>
+					<li style="text-align: justify;">Presented AI workshop to the Council for Higher Education (CHE):
+						The Council on Higher Education (CHE) is the steward of quality assurance in South Africa's
+						higher education sector, a role that involves processing and analysing vast quantities of
+						complex, text-rich data. From institutional accreditation documents and quality audit reports to
+						policy papers and student data analysis, the data workload is immense.
+						On 21 August 2025 the senior director and I presented a
+						4-hour introductory workshop designed to facilitate reflection but also develop practical skills
+						to engineer prompts for the CHE context. The objective was to equip staff with the skills to
+						utilise Large Language Models (LLMs) to explore how AI could enhance operational efficiencies,
+						accelerate data analysis, and enhance decision-making processes, directly supporting the CHE's
+						mandate.
+
+
+
+
+
+					</li>
+
+					<li style="text-align: justify;">AI stress testing:
+						I ran several experiments to evaluate the feasibility to scale AI. I started off by evaluating
+						paid vendors. The evaluation included
+						stress testing API token and request limits. The stress tests revealed that it would be very
+						expensive to roll out vendor based LLMs to
+						the university's 2700+ modules. It was also difficult to track exact token (tokens used during
+						"thinking" mode are not disclosed) use and it poses a risk
+						because token use is tied to the payment structure. Next I moved on to a series of Open Source
+						model testing.
+						I picked a range of models (different authors, different parameter sizes) to conduct an open
+						source LLM competency test.
+						The competency test involved a logical reasoning, a coding, a decision making, a writing and an
+						abstract
+						conceptual synthesis test. These test gave us insight into model selection for scaling our
+						project.
+						The next part of the stress testing was to evaluate hardware limitations and optimizations
+						(context length, GPU offload, parameter quantization).
+
+
+
+
+
+					</li>
+					<li style="text-align: justify;">Agentic AI:</li>
+					<li style="text-align: justify;">Prompt orchestration:</li>
+				</ul>
+				</p>
+			</article>
 
 		</div>
 
