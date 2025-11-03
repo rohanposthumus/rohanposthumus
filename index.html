@@ -130,6 +130,39 @@
 			list-style-type: disc;
 			/* Use a standard disc bullet */
 		}
+
+		.achievements-list {
+			list-style-type: none;
+			/* Remove default bullets */
+			padding-left: 0;
+		}
+
+		.achievements-list li {
+			position: relative;
+			padding-left: 1.8em;
+			/* Make room for custom bullet */
+			margin-bottom: 1.1em;
+			/* Space between items */
+			font-size: 1.05em;
+			/* Slightly larger text */
+			text-align: justify;
+			/* Justify the text */
+		}
+
+		.achievements-list li::before {
+			content: '🏆';
+			/* Using a trophy emoji as a bullet */
+			position: absolute;
+			left: 0;
+			top: 0.05em;
+			/* Adjust vertical alignment */
+			font-size: 1em;
+		}
+
+		.achievements-list li strong {
+			color: #ffffff;
+			/* Make the strong text stand out */
+		}
 	</style>
 
 
@@ -195,15 +228,15 @@
 
 		// ADD ACHIEVEMENTS HERE, WILL LOAD 3 AT A TIME
 		const achievements = [
-			'• Led data analytics for <strong>40,000+ students</strong>, informing university-wide strategy.',
-			'• Developed predictive ML models with <strong>85% accuracy</strong>, processing 150,000+ applications.',
-			'• Authored core algorithms for a <strong>R170 million</strong> student success project.',
-			'• Wrote 65 high-impact reports for top management during the COVID-19 pandemic.',
-			'• Automated a process that took weeks down to <strong>8 minutes</strong>.',
-			'• Designed and built the Learner Case Management (LCM) system from prototype to production.',
-			'• Chaired the Blackboard Data Developers User Group for Europe, Middle-East, and Africa.',
-			'• Deployed text-mining algorithms to identify and support at-risk students.',
-			'• Significantly reduced institutional risk, leading to <strong>multi-million Rand subsidies</strong>.'
+			'• Authored the core algorithms for a <strong>R170 million</strong> student success partnership with the Michael Susan Dell Foundation.',
+			'• Developed and deployed predictive ML models with <strong>85% accuracy</strong>, processing over <strong>150,000+ applications</strong> annually to inform university policy.',
+			'• Led COVID-19 analytics for <strong>40,000+ students</strong>, authoring 65 reports that became a <strong>national DHET reporting requirement</strong> and secured multi-million Rand subsidies.',
+			'• Architected and developed the <strong>Learner Case Management (LCM) system</strong> from initial	prototype (Python/C#) to a production system central to all student advising support.',
+			'• Conducted a comprehensive impact analysis on developmental modules, demonstrating their role in <strong>addressing the national equity gap</strong> and securing over <strong>R20 million in annual tuition</strong>.',
+			'• Built and trained an internal "Baby AI" (transformer model) to <strong>inform institutional AI strategy</strong>, presenting the R&D findings at the 2023 SAAIR conference.',
+			'• Presented an invited 4-hour workshop on AI implementation and prompt engineering to the <strong>Council for Higher Education (CHE)</strong>.',
+			'• Co-authored research on <strong>Generative AI for Assessment</strong>, which was accepted for a special edition of the South African Journal of Higher Education.',
+			'• Automated a critical registration task using a Python bot, reducing a process that took four	people <strong>weeks down to just 8 minutes</strong>.',
 		];
 
 		// 2. TWEAK TIMINGS (in milliseconds)
@@ -477,75 +510,50 @@
 					<li>Data analytics and statistical modeling</li>
 					<li>Data science and machine learning</li>
 					<li>Data manipulation and querying (SQL)</li>
-					<li>Programming (Python-first)</li>
+					<li>System architecture & development</li>
 					<li>Applied science research design and execution</li>
 					<li>Communication and training (both technical and non-technical)</li>
-					<li>Project management</li>
-					<li>Adaptability and flexibility</li>
-
+					<li>Generative AI development</li>
+					<li>Automation & process optimization</li>
 				</ul>
 				</p>
 
 				<h3 class="major">Recent achievements</h3>
-				<p>
-				<ul>
-					<li style="text-align: justify;">Tracked online engagement of over 40,000 students during Covid and
-						wrote 65 reports that served
-						at top
-						management. These reports was so successful that it became a Department of Higher Education
-						reporting requirement for all
-						universities in South Africa during Covid. These reports significantly reduced the University's
-						risk
-						score and led to multi-million Rand subsidies.</li>
-					<li style="text-align: justify;">Created and deployed a machine learning algorithm to predict the
-						Academic Literacy Scores
-						of students since 2020, processing over 150,000 applications and making more than 10,000
-						predictions in 2023 with
-						an 85%
-						accuracy score during out-of-sample testing. Our work on the Academic
-						Literacy predictor has also influenced the University's language
-						policy and the NBT algorithm is now written into our General Rules policy.
+				<ul class="achievements-list">
+					<li>Authored the core algorithms for a <strong>R170 million</strong> student success
+						partnership with the Michael Susan Dell Foundation.</li>
+					<li>Developed and deployed predictive ML models with <strong>85% accuracy</strong>, processing over
+						<strong>150,000+ applications</strong> annually to inform university policy.
+					</li>
+					<li>Led COVID-19 analytics for <strong>40,000+ students</strong>, authoring 65 reports that became a
+						<strong>national DHET reporting requirement</strong> and secured multi-million Rand subsidies.
+					</li>
 
+					<li>Architected and developed the <strong>Learner Case Management (LCM) system</strong> from initial
+						prototype (Python/C#) to a production system central to all student advising support.</li>
+					<li>
+						Conducted a comprehensive impact analysis on developmental modules, demonstrating their role in
+						addressing the <strong>national equity gap</strong> and securing over <strong>R20
+							million</strong> in annual tuition.
 					</li>
-					<li style="text-align: justify;">Co-presented the opening presentation for "Assessment Innovation in
-						an AI World" conference,
-						demonstrating
-						ChatGPT and its implications for higher education.</li>
-					<li style="text-align: justify;">The Michael Susan Dell Foundation has partnered with the University
-						for the next 7 years to
-						productionize student success
-						algorithms, with a project size of R170 million. I wrote all the algorithms for this project.
+					<li>Built and trained an internal "Baby AI" (transformer model) to <strong>inform institutional AI
+							strategy</strong>, presenting the R&D findings at the 2023 SAAIR conference.</li>
+					<li>Presented an invited 4-hour workshop on AI implementation and prompt engineering to the
+						<strong>Council for Higher Education (CHE)</strong>.
 					</li>
-					<li style="text-align: justify;">Data officer and system admin for the student success data of the
-						University, ensuring
-						compliance
-						with the protection of personal data.</li>
-					<li style="text-align: justify;">Sits on the steering committee of the University's Business
-						Intelligence project, with direct
-						access to the
-						Operational Data Store.</li>
-					<li style="text-align: justify;">Data domain steward for Blackboard analytics hosted on Snowflake.
-					</li>
-					<li style="text-align: justify;">Selected by Blackboard Inc. to be the chair of the European,
-						Middle-East, Africa Blackboard data
-						developers user group.</li>
-					<li style="text-align: justify;">Co-developer of Energia, an machine learning powered productivity
-						web app.</li>
-					<li style="text-align: justify;">Won one of the Arbinger medals for being the most "outward" person
-						in our department (an
-						outward mindset is when you are highly aware of your group's needs, challenges, goals, and
-						humanity and how your actions will
-						affect them).</li>
-
+					<li>Co-authored research on <strong>Generative AI for Assessment</strong>, which was accepted for a
+						special edition of the South African Journal of Higher Education.</li>
+					<li>Automated a critical registration task using a Python bot, reducing a process that took four
+						people <strong>weeks down to just 8 minutes</strong>.</li>
 				</ul>
 			</article>
 
 			<article id="projects">
 				<h2 class="major">Key Projects</h2>
-				<p>Here are a few spotlights of my most impactful work. More details can be found in the skill-specific
-					sections.</p>
+				<p>Here are spotlights of my most impactful work, structured using the <strong>"Problem / Solution /
+						Impact"</strong> framework. More details can be found in the skill-specific sections.</p>
 
-				<h3 style="text-align: left;">NBT Predictive Algorithm & Automation Bot</h3>
+				<h3 style="text-align: left;">NBT predictive algorithm & automation bot</h3>
 				<p style="text-align: justify;">
 					<strong>Problem:</strong> During the pandemic, many students couldn't take the compulsory National
 					Benchmark Test (NBT) for financial reasons, blocking them from registration.
@@ -554,17 +562,18 @@
 					student academic literacy scores, allowing for exemptions. I then built a Python email bot to
 					automate the generation and sending of 1,000+ personalized HTML notification emails per minute.
 					<br>
-					<strong>Impact:</strong> Processed over 150,000 applications, achieved 85% out-of-sample accuracy,
-					and reduced a task that took four people weeks to just eight minutes. The algorithm is now
+					<strong>Impact:</strong> Processed over 150,000 applications per year for the last 5 years, achieved
+					85% out-of-sample accuracy,
+					and reduced a task that took four people weeks to just eight minutes. The algorithm is
 					institutionalized in the University's General Rules.
 				</p>
 
-				<h3 style="text-align: left;">Michael Susan Dell Foundation (MSDF) Student Success Algorithms</h3>
+				<h3 style="text-align: left;">Michael Susan Dell Foundation (MSDF) student success algorithms</h3>
 				<p style="text-align: justify;">
 					<strong>Problem:</strong> The university needed a robust, scalable system to proactively identify
 					at-risk students and track their progress toward career-readiness.
 					<br>
-					<strong>Solution:</strong> I authored all the core algorithms for a R170 million, 7-year
+					<strong>Solution:</strong> I authored all the core algorithms for a ZAR 170 million, 7-year
 					partnership. This included the "Scaled Responsive Student Tracking" algorithm (an advanced early
 					warning system) and the "Employability Tracking Algorithm" which pulls, integrates, and analyzes
 					data to award badges as students hit milestones.
@@ -586,6 +595,50 @@
 					<strong>Impact:</strong> The reports became a national DHET reporting requirement, were presented to
 					the Minister of Higher Education, significantly reduced the University's risk score, and led to
 					multi-million Rand subsidies.
+				</p>
+
+				<h3 style="text-align: left;">Learner Case Management (LCM) System</h3>
+				<p style="text-align: justify;">
+					<strong>Problem:</strong> The University needed an efficient, standardized, and scalable system to
+					keep accurate records of advising support provided to students.
+					<br>
+					<strong>Solution:</strong> I led the conceptualization and development of the LCM system from the
+					ground up. I wrote the initial prototype code in Python and C# and oversaw a two-year testing
+					period to normalize, standardize, and validate all processes and data.
+					<br>
+					<strong>Impact:</strong> The LCM system is now the central, reliable platform for tracking all
+					student support interactions and serves as the foundational data source that integrates with the
+					R170 million MSDF student success algorithms.
+				</p>
+
+				<h3 style="text-align: left;">"Baby AI" (Internal LLM Research & Development Project)</h3>
+				<p style="text-align: justify;">
+					<strong>Problem:</strong> Following the launch of ChatGPT, the University needed to urgently
+					understand the technical capabilities, risks, and resource costs of Generative AI in our own
+					context.
+					<br>
+					<strong>Solution:</strong> I built a small-scale transformer model ("Baby AI") from scratch. I
+					trained it on institutional parallel corpora (an academic literacy study guide) to test its
+					real-world performance on translation and question-answering tasks.
+					<br>
+					<strong>Impact:</strong> This R&D project provided critical, hands-on insights into training time,
+					data requirements, accuracy, and hallucinations. The findings were presented at the 2023 SAAIR
+					conference and directly informed the Center of Teaching and Learning's AI strategy.
+				</p>
+
+				<h3 style="text-align: left;">NISS (Georgia State University) Data Collaboration</h3>
+				<p style="text-align: justify;">
+					<strong>Problem:</strong> The UFS is collaborating with the NISS to analyze 10 years of student
+					learning pathways, a project requiring the extraction and processing of massive, complex historical
+					datasets.
+					<br>
+					<strong>Solution:</strong> As the lead for institutional data provision, I developed Python scripts
+					using multiprocessing to concurrently pull, process, and automate the handling of these large-scale
+					data requests from our Microsoft SQL Server.
+					<br>
+					<strong>Impact:</strong> My automated scripts enabled this high-profile international research
+					collaboration, accelerating the data-extraction-to-analysis pipeline and providing the foundation
+					for new insights into student success.
 				</p>
 			</article>
 
@@ -831,7 +884,18 @@
 						</ul>
 					</div>
 				</details>
-
+				<details class="accordion-item">
+					<summary>High priority modules algorithm</summary>
+					<div class="accordion-content">
+						<p style="text-align: justify;">
+							The University of the Free State wanted a data-driven, collaborative framework for
+							identifying
+							high-priority modules.
+							Traditional linear models has a few limitations for what we are trying to do, so I
+							developed an outlier detection inspired algorithm to identify modules high priority modules.
+						</p>
+					</div>
+				</details>
 				<details class="accordion-item">
 					<summary>Institutional algorithms</summary>
 					<div class="accordion-content">
@@ -1114,28 +1178,15 @@
 					</div>
 				</details>
 
-				<details class="accordion-item">
-					<summary>High priority modules algorithm</summary>
-					<div class="accordion-content">
-						<p style="text-align: justify;">
-							The University of the Free State wanted a data-driven, collaborative framework for
-							identifying
-							high-priority modules.
-							Traditional linear models has a few limitations for what we are trying to do, so I
-							developed an outlier detection inspired algorithm to identify modules high priority modules.
-						</p>
-					</div>
-				</details>
+
 
 				<br>
 
 			</article>
 
-			<!--<article id="data-engineering"></article> -->
 			<article id="artificial-intelligence">
 				<h2 class="major">Artificial Intelligence</h2>
-				<!--<span class="image main"><img src="images/ai.JPG" alt="Image produced by Gemini" height="320"
-						title="Image produced by Gemini" /></span> -->
+				<span class="image main"><img src="images/assessment.JPG" alt="" height="350" title="" /></span>
 
 				<p style="text-align: justify;">
 					I am the lead data scientist for the Siyaphumelela project at the University of the Free State.
