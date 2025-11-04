@@ -296,7 +296,7 @@
 				element.innerHTML = text.substring(0, i);
 				await sleep(eraseSpeed);
 			}
-			element.innerHTML = ''; // Clear it
+			element.innerHTML = '&nbsp;'; // Clear it
 			element.classList.remove('typewriter-text');
 		}
 
@@ -386,75 +386,41 @@
 			<article id="about">
 				<h2 class="major">About</h2>
 				<span class="image main"><img src="images/profile-pic.JPG" alt="Rohan Posthumus" /></span>
-				<p style="text-align: justify;"><strong>
-						<blockquote id="cv-summary" style="text-align: justify;">
-							With 14+ years of experience at the University of the Free State, I am a data scientist
-							specializing in enhancing student success. I architect and build high-impact data solutions,
-							from predictive ML models processing <strong>150,000+ applications annually</strong> to the
-							core
-							algorithms for a <strong>R170 million</strong> foundation partnership. I excel at
-							translating complex data into institutional strategy and delivering robust, scalable
-							systems.
+				<h3 class="major">
+					Summary
+				</h3>
+				<p style="text-align: justify;" id="cv-summary">
+					With 14+ years of experience at the University of the Free State, I am a data scientist
+					specializing in enhancing student success. I architect and build high-impact data solutions,
+					from predictive ML models processing <strong>150,000+ applications annually</strong> to the
+					core
+					algorithms for a <strong>R170 million</strong> foundation partnership. I excel at
+					translating complex data into institutional strategy and delivering robust, scalable
+					systems.</p>
 
-
-						</blockquote>
-					</strong></p>
-				<!--<ul class="actions">
-					<li><a href="assets/Rohan-Posthumus-CV.pdf" class="button primary" target="_blank">Download Full CV
-							(PDF)</a></li>
-				</ul>-->
 				<h3 class="major">Background</h3>
 				<p style="text-align: justify;" id="cv-background">
-					As an experienced professional with more than 10 years of experience at
-					the University of the Free
-					State, I have developed a diverse skill set in applied science, research, data analytics, data
-					science, and programming. I have a proven track record of leveraging data-driven insights to solve
-					complex problems and make informed decisions.<br><br>
 
-					Currently, I am responsible for driving analytics for student success at our institution, in
-					partnership with both the Kresge and Michael Susan Dell Foundation. During the COVID-19 pandemic, I
-					played a critical role in tracking online engagement for over 40,000 students to ensure that
-					teaching and learning was taking place effectively. Over the course of the pandemic, I wrote 65
-					reports that served as valuable resources for top management in making informed decisions.
-					Leveraging my expertise in data analytics, I developed statistical models and machine learning
-					algorithms to analyze structured and unstructured data and build predictive models. Through these
-					initiatives, we were able to identify students who were at risk of falling behind and provide them
-					with targeted support. My ability to work effectively under pressure and adapt to rapidly changing
-					circumstances was essential in ensuring the success of these initiatives.<br><br>
 
-					Throughout my career, I have designed and executed experiments, analyzed data, and drawn conclusions
-					based on statistical analysis. A defining opportunity in my career was conducting applied
-					biotechnology research for our University's industrial partners at the Metagenomics Platform. As
-					part of a multidisciplinary project team, I conceptualized and commercialized novel technologies
-					that we developed, co-authored publications and patents, and presented our findings at conferences.
-					My ability to communicate technical concepts effectively to both technical and non-technical
-					stakeholders was essential in securing funding for these projects and fostering productive
-					relationships with our industry partners.<br><br>
+					My career path is driven by a passion for understanding complex systems. I began in
+					<strong>applied biotechnology</strong>, conducting metagenomics research where I co-authored
+					publications and an international patent. This technical R&D role honed my ability to design
+					experiments
+					and analyze intricate data to find novel solutions.<br><br>
 
-					Overall, I am a well-rounded professional who is equipped with the knowledge, skills, and tools to
-					deliver high-quality results in a fast-paced and dynamic work environment. I am confident that my
-					experience and expertise make me highly employable and I look forward to discussing how I can
-					contribute to your team.<br><br>
+					I extended this scientific mindset from biological systems to an equally complex domain:
+					<strong>student success in higher education</strong>. For the last 7+ years, I have been the lead
+					data
+					scientist driving the analytics and AI strategy for over 40,000 students.<br><br>
 
-					The following quote sums up my career:
+					This unique cross-contextual background allows me to bridge the gap between pure research and
+					practical, high-impact application. My background in financial analysis (CFA Level 1) and
+					management development ensures these solutions are not just technically novel, but also
+					<strong>strategically and financially sound.</strong>
+					My work is best summed up by Kurt
+					Lewin's
+					quote:
 				<blockquote>"There is nothing so practical as a good theory". <br>Kurt Lewin</blockquote>
-
-				My career path is driven by a passion for understanding complex systems. I began in
-				<strong>applied biotechnology</strong>, conducting metagenomics research where I co-authored
-				publications and an international patent. This technical R&D role honed my ability to design experiments
-				and analyze intricate data to find novel solutions.<br><br>
-
-				I pivoted this scientific mindset from biological systems to an equally complex domain:
-				<strong>student success in higher education</strong>. For the last 7+ years, I have been the lead data
-				scientist driving the analytics and AI strategy for over 40,000 students.<br><br>
-				This unique 'cross-contextual' background allows me to bridge the gap between pure
-				research and practical, high-impact application. I don't just analyze data; I build the systems, models,
-				and AI tools that transform it into institutional strategy. My work is best summed up by Kurt Lewin's
-				quote:
-
-
-
-
 				</p>
 
 				<h3 class="major">Experience</h3>
@@ -487,7 +453,7 @@
 					</table>
 				</div>
 				<p></p>
-				<h3 class="major">Formal education</h3>
+				<h3 class="major">Education</h3>
 				<div class="table-wrapper">
 					<table class="alt" style="width: 100%;" id="cv-education-table">
 						<thead>
@@ -522,7 +488,7 @@
 						</tbody>
 					</table>
 				</div>
-				<h3 class="major">Top 10 skills</h3>
+				<h3 class="major">Top skills</h3>
 				<p>
 				<ul class="skills-list" id="cv-skills-list">
 					<li>Data analytics and statistical modeling</li>
@@ -667,6 +633,10 @@
 				<h2 class="major">Get in Touch</h2>
 				<p>I'm actively seeking new opportunities and would be happy to discuss how my skills can benefit your
 					team. Please feel free to reach out via email or connect with me on LinkedIn.</p>
+				<ul class="actions">
+					<li><a href="assets/Rohan-Posthumus-CV.pdf" class="button primary" target="_blank">Download Full CV
+							(PDF)</a></li>
+				</ul>
 				<ul class="icons">
 					<li><a href="mailto:rohan@ideascape.co.za" class="icon fa-solid fa-envelope" id="cv-email"><span
 								class="label">Email</span></a></li>

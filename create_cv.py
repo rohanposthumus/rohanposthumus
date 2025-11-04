@@ -46,7 +46,7 @@ def scrape_data(soup):
         }
 
         # --- 2. Summary ---
-        data["summary"] = soup.find(id="cv-summary").get_text(strip=True)
+        data["summary"] = get_inner_html(soup.find(id="cv-summary"))
 
         # --- 3. Key Projects ---
         # This logic is already robust, as it's tied to the "projects" article id
@@ -96,9 +96,7 @@ def scrape_data(soup):
         # --- 7. Achievements ---
         # Use the new stable ID
         ach_list = soup.find(id="cv-achievements-list")
-        data["achievements"] = [
-            li.get_text(strip=True) for li in ach_list.find_all("li")
-        ]
+        data["achievements"] = [get_inner_html(li) for li in ach_list.find_all("li")]
 
         return data
 
