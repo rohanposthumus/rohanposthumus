@@ -6,6 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ name }}'s CV</title>
     <style>
+        /*
+         * == WeasyPrint Page Setup ==
+         * This block now controls all page margins and footers.
+        */
+        @page {
+            size: A4;
+
+            /* --- EDIT YOUR MARGINS HERE --- */
+            margin-top: 1.5cm;
+            margin-bottom: 2cm;
+            /* A bit extra for the footer */
+            margin-left: 1.5cm;
+            margin-right: 1.5cm;
+
+            /* This creates the page number footer */
+            @bottom-right {
+                content: "Page " counter(page) " of " counter(pages);
+                font-family: 'Helvetica', 'Arial', sans-serif;
+                font-size: 8pt;
+                color: #666;
+                border-top: 1px solid #ccc;
+                padding-top: 5px;
+                width: 100%;
+                white-space: pre-line;
+                /* Stretches the border line */
+            }
+
+            @bottom-center {
+                content: "rohan@ideascape.co.za";
+                font-family: 'Helvetica', 'Arial', sans-serif;
+                font-size: 8pt;
+                color: #666;
+                border-top: 1px solid #ccc;
+                padding-top: 5px;
+                width: 100%;
+                white-space: pre-line;
+                /* Stretches the border line */
+            }
+
+            @bottom-left {
+                content: "Rohan Posthumus \A Data Scientist | Analyst | AI Specialist";
+                font-family: 'Helvetica', 'Arial', sans-serif;
+                font-size: 8pt;
+                color: #666;
+                border-top: 1px solid #ccc;
+                padding-top: 5px;
+                width: 100%;
+                white-space: pre-line;
+                /* Stretches the border line */
+            }
+        }
+
+        /* --- General Styles --- */
         body {
             font-family: 'Helvetica', 'Arial', sans-serif;
             font-size: 10.5pt;
@@ -14,21 +67,19 @@
             /* --text-color */
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
-            /* Light grey background for screen */
             text-align: justify;
         }
 
+        /*
+         * == Simplified Page Container ==
+         * We removed all width, margin, padding, and shadow.
+         * The @page rule handles all of that now.
+        */
         .page {
-            width: 17cm;
-            min-height: 25.7cm;
-            margin: 2cm auto;
-            padding: 2cm;
-            background: #fff;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box;
+            /* All layout properties removed */
         }
 
+        /* --- Header Styles --- */
         .header {
             text-align: center;
             border-bottom: 2px solid #004a80;
@@ -72,6 +123,7 @@
             text-decoration: underline;
         }
 
+        /* --- Section Styles --- */
         h2 {
             font-size: 14pt;
             color: #004a80;
@@ -114,12 +166,14 @@
             margin-bottom: 5px;
         }
 
+        /* --- Entry Styles (Jobs, Projects, Education) --- */
         .entry {
             margin-bottom: 18px;
+            page-break-inside: avoid;
+            /* Pro-tip: Prevents entries from splitting across pages */
         }
 
         .entry-header {
-            /* Basic flexbox is supported, this should be fine */
             display: flex;
             justify-content: space-between;
             align-items: baseline;
@@ -139,6 +193,7 @@
             margin-top: 8px;
         }
 
+        /* --- Skills List --- */
         .skills-list {
             list-style-type: none;
             padding: 0;
@@ -159,68 +214,6 @@
             border-radius: 4px;
             font-size: 10pt;
         }
-
-        @media (max-width: 21cm) {
-            body {
-                background-color: #fff;
-            }
-
-            .page {
-                width: 100%;
-                margin: 0;
-                padding: 1cm;
-                box-shadow: none;
-                min-height: 0;
-            }
-
-            .entry-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .entry-header .duration {
-                padding-left: 0;
-                font-size: 9pt;
-            }
-        }
-
-        @media print {
-            body {
-                background-color: #fff;
-                font-size: 10pt;
-            }
-
-            .page {
-                margin: 1.5cm;
-                width: auto;
-                box-shadow: none;
-                min-height: 0;
-            }
-
-            h1,
-            h2,
-            h3,
-            h4,
-            p,
-            li,
-            a {
-                color: #000 !important;
-            }
-
-            .header,
-            h2 {
-                border-bottom-color: #000 !important;
-            }
-
-            .skills-list li {
-                background-color: #eee !important;
-                border: 1px solid #ccc !important;
-            }
-
-            a {
-                text-decoration: none;
-            }
-        }
     </style>
 </head>
 
@@ -235,6 +228,10 @@
                 <a href="{{ contact.github }}" target="_blank">GitHub</a>
                 &bull;
                 <a href="{{ contact.linkedin }}" target="_blank">LinkedIn</a>
+                &bull;
+                <a href="{{ contact.website }}" target="_blank">Website</a>
+
+
             </p>
         </div>
 
